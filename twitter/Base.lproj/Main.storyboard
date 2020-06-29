@@ -65,7 +65,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zX4-hM-H0Y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="350" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zX4-hM-H0Y">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -140,11 +140,14 @@ louder for the people in the back: commentary on exclusivity that still leaves m
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likeButton" destination="HrU-d7-4b1" id="EAY-BG-wdK"/>
                                             <outlet property="likeCountLabel" destination="qGm-Qr-ewN" id="Cc9-Op-3zr"/>
                                             <outlet property="nameLabel" destination="eBC-7L-Qjg" id="3NM-2x-6VO"/>
                                             <outlet property="profilePic" destination="IEa-CT-b2f" id="X3R-v6-poF"/>
+                                            <outlet property="retweetButton" destination="pp6-MO-9pD" id="iL8-b2-pEz"/>
                                             <outlet property="retweetCountLabel" destination="0SW-c3-8zK" id="6nl-fO-X7l"/>
                                             <outlet property="timeLabel" destination="sFO-Xc-uIz" id="TC1-qV-K8S"/>
+                                            <outlet property="tweetTextLabel" destination="g3x-qR-2bc" id="6py-tT-G7K"/>
                                             <outlet property="usernameLabel" destination="9cs-Xq-w23" id="jUa-vg-IGN"/>
                                         </connections>
                                     </tableViewCell>

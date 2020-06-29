@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "TweetCellTableViewCell.h"
 #import "Tweet.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -58,6 +59,23 @@
     TweetCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.tweets[indexPath.row];
+    
+    [cell.profilePic setImageWithURL:tweet.user.profilePicUrl];
+    cell.nameLabel.text = tweet.user.name;
+    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
+    cell.timeLabel.text = tweet.createdAtString;
+    cell.tweetTextLabel.text = tweet.text;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+    cell.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
+
+    if (tweet.favorited) {
+        [cell.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red"]];
+    }
+    
+    if (tweet.retweeted) {
+        [cell.retweetButton.imageView setImage:[UIImage imageNamed:@"retweet-icon-green"]];
+    }
+
     
     return cell;
     
