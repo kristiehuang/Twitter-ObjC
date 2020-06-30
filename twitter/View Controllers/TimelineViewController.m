@@ -11,8 +11,9 @@
 #import "TweetCellTableViewCell.h"
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
+#import "ComposeViewController.h"
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
@@ -36,9 +37,6 @@
         if (tweets) {
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (Tweet *twt in tweets) {
-                NSString *text = twt.text;
-            }
             [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
