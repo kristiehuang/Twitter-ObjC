@@ -13,6 +13,7 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -23,19 +24,26 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    // Get timeline
+    [self getTimeline];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+}
+
+- (void)getTimeline {
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             for (Tweet *twt in tweets) {
                 NSString *text = twt.text;
-//                NSLog(@"%@", text);
             }
             [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -43,6 +51,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -59,6 +68,8 @@
     TweetCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.tweets[indexPath.row];
+    
+    NSLog(@"%@", tweet.text);
     
     [cell.profilePic setImageWithURL:tweet.user.profilePicUrl];
     cell.nameLabel.text = tweet.user.name;
