@@ -20,7 +20,11 @@
 
 - (void)likeTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
+- (void)unlikeTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+
+
 - (void)retweetTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+- (void)unRetweetTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
 
 @end
