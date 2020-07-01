@@ -28,12 +28,17 @@
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
 
     if (tweet.favorited) {
-        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red"]];
+        [self.likeButton setSelected:YES];
+    } else {
+        [self.likeButton setSelected:NO];
     }
     
     if (tweet.retweeted) {
-        [self.retweetButton.imageView setImage:[UIImage imageNamed:@"retweet-icon-green"]];
+        [self.retweetButton setSelected:YES];
+    } else {
+        [self.retweetButton setSelected:NO];
     }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -43,41 +48,67 @@
 }
 
 - (IBAction)retweetButtonTapped:(id)sender {
+
     if (self.tweet.retweeted) {
         self.tweet.retweetCount -= 1;
+        [self.retweetButton setSelected:NO];
+
+        [[APIManager shared] unRetweetTweet:self.tweet completion:^(Tweet * twt, NSError * err) {
+            if (err) {
+                NSLog(@"%@", err.localizedDescription);
+            } else {
+                NSLog(@"booyah");
+            }
+        }];
     } else {
         self.tweet.retweetCount += 1;
+        [self.retweetButton setSelected:YES];
+
+        [[APIManager shared] retweetTweet:self.tweet completion:^(Tweet * twt, NSError * err) {
+            if (err) {
+                NSLog(@"%@", err.localizedDescription);
+            } else {
+                NSLog(@"booyah");
+            }
+        }];
     }
-    self.tweet.retweeted = !self.tweet.retweeted;
-    [self.retweetButton setSelected:!self.retweetButton.isSelected];
-    [self setUpView:self.tweet];
     
-    [[APIManager shared] retweetTweet:self.tweet completion:^(Tweet * twt, NSError * err) {
-        if (err) {
-            NSLog(@"%@", err.localizedDescription);
-        } else {
-            NSLog(@"booyah");
-        }
-    }];
+
+    
+    self.tweet.retweeted = !self.tweet.retweeted;
+    [self setUpView:self.tweet];
+
     
 }
 - (IBAction)likeButtonTapped:(id)sender {
+
     if (self.tweet.favorited) {
         self.tweet.favoriteCount -= 1;
+        [self.likeButton setSelected:NO];
+
+        [[APIManager shared] unlikeTweet:self.tweet completion:^(Tweet * twt, NSError * err) {
+            if (err) {
+                NSLog(@"%@", err.localizedDescription);
+            } else {
+                NSLog(@"booyah");
+            }
+        }];
     } else {
         self.tweet.favoriteCount += 1;
+        [self.likeButton setSelected:YES];
+
+        [[APIManager shared] likeTweet:self.tweet completion:^(Tweet * twt, NSError * err) {
+            if (err) {
+                NSLog(@"%@", err.localizedDescription);
+            } else {
+                NSLog(@"booyah");
+            }
+        }];
     }
     self.tweet.favorited = !self.tweet.favorited;
-    [self.likeButton setSelected:!self.likeButton.isSelected];
     [self setUpView:self.tweet];
-    
-    [[APIManager shared] likeTweet:self.tweet completion:^(Tweet * twt, NSError * err) {
-        if (err) {
-            NSLog(@"%@", err.localizedDescription);
-        } else {
-            NSLog(@"booyah");
-        }
-    }];
+
+
 }
 
 
