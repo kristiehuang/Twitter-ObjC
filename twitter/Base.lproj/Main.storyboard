@@ -83,6 +83,11 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEa-CT-b2f">
                                                             <rect key="frame" x="20" y="27" width="92" height="92"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="50"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kristie Huang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBC-7L-Qjg">
                                                             <rect key="frame" x="132" y="27" width="112" height="21"/>
@@ -120,6 +125,10 @@ louder for the people in the back: commentary on exclusivity that still leaves m
                                                             <rect key="frame" x="132" y="298" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" image="retweet-icon"/>
+                                                            <state key="selected" image="retweet-icon-green"/>
+                                                            <connections>
+                                                                <action selector="retweetButtonTapped:" destination="MBK-JH-PEU" eventType="touchUpInside" id="StK-kv-piZ"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="334" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGm-Qr-ewN">
                                                             <rect key="frame" x="251" y="303" width="32" height="21"/>
@@ -132,6 +141,10 @@ louder for the people in the back: commentary on exclusivity that still leaves m
                                                             <rect key="frame" x="213" y="298" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" image="favor-icon"/>
+                                                            <state key="selected" image="favor-icon-red"/>
+                                                            <connections>
+                                                                <action selector="likeButtonTapped:" destination="MBK-JH-PEU" eventType="touchUpInside" id="9Ar-gH-ImS"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jun 26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFO-Xc-uIz">
                                                             <rect key="frame" x="334" y="27" width="53" height="21"/>
@@ -304,6 +317,8 @@ louder for the people in the back: commentary on exclusivity that still leaves m
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="favor-icon-red" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
+        <image name="retweet-icon-green" width="30" height="30"/>
     </resources>
 </document>

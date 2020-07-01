@@ -17,6 +17,10 @@
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
 
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;
-//get a users timeline, favorite a tweet, retweet
+
+- (void)likeTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+
+- (void)retweetTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+
 
 @end
