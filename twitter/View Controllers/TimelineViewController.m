@@ -24,7 +24,8 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     [self getTimeline];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
