@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0C55B224AD456000C07483 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C55B124AD456000C07483 /* SettingsViewController.m */; };
 		3A36EDE724AA83DD00105C3D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36EDE624AA83DD00105C3D /* User.m */; };
 		3A36EDEA24AA857100105C3D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36EDE924AA857100105C3D /* Tweet.m */; };
 		3AE60E1C24AA98B300EE38E9 /* TweetCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE60E1B24AA98B300EE38E9 /* TweetCellTableViewCell.m */; };
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
+		3A0C55B024AD456000C07483 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3A0C55B124AD456000C07483 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3A36EDE524AA83DD00105C3D /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3A36EDE624AA83DD00105C3D /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3A36EDE824AA857100105C3D /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				3AE60E1D24ABE01300EE38E9 /* ComposeViewController.h */,
 				3AE60E1E24ABE01300EE38E9 /* ComposeViewController.m */,
+				3A0C55B024AD456000C07483 /* SettingsViewController.h */,
+				3A0C55B124AD456000C07483 /* SettingsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				3A36EDEA24AA857100105C3D /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
+				3A0C55B224AD456000C07483 /* SettingsViewController.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
