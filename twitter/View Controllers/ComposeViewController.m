@@ -10,8 +10,9 @@
 #import "TimelineViewController.h"
 #import "APIManager.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *composeTweetTextView;
+@property (weak, nonatomic) IBOutlet UILabel *charsRemainingLabel;
 
 @end
 
@@ -19,8 +20,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.composeTweetTextView.delegate = self;
     // Do any additional setup after loading the view.
 }
+
+- (void)textViewDidChange:(UITextView *)textView {
+    NSInteger currentChars = 280 - textView.text.length;
+    if (currentChars <= 50) {
+        self.charsRemainingLabel.textColor = [UIColor redColor];
+    }
+    if (currentChars <= 0) {
+        [textView endEditing:YES];
+        [textView setEditable:NO];
+
+    }
+    self.charsRemainingLabel.text = [NSString stringWithFormat:@"%ld / 280 chars", (long)currentChars];
+}
+
 - (IBAction)cancelButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

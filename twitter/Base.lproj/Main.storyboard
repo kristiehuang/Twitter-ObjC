@@ -437,10 +437,18 @@ louder for the people in the back: commentary on exclusivity that still leaves m
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="280 / 280 chars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86N-8O-G3N">
+                                <rect key="frame" x="276" y="316" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="86N-8O-G3N" firstAttribute="top" secondItem="mFs-aT-DSv" secondAttribute="top" constant="260" id="0ro-Vj-a7P"/>
                             <constraint firstAttribute="trailing" secondItem="alG-4L-dOp" secondAttribute="trailing" constant="35" id="5sH-I8-isF"/>
+                            <constraint firstAttribute="trailing" secondItem="86N-8O-G3N" secondAttribute="trailing" constant="15" id="HhJ-zv-QLP"/>
                             <constraint firstAttribute="bottom" secondItem="alG-4L-dOp" secondAttribute="bottom" id="RvT-L5-Olt"/>
                             <constraint firstItem="alG-4L-dOp" firstAttribute="leading" secondItem="mFs-aT-DSv" secondAttribute="leading" constant="35" id="fJN-zr-dM7"/>
                             <constraint firstItem="alG-4L-dOp" firstAttribute="top" secondItem="mFs-aT-DSv" secondAttribute="top" id="wps-RN-hLV"/>
@@ -478,6 +486,7 @@ louder for the people in the back: commentary on exclusivity that still leaves m
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charsRemainingLabel" destination="86N-8O-G3N" id="Omy-1a-nM5"/>
                         <outlet property="composeTweetTextView" destination="alG-4L-dOp" id="fgo-iV-dlk"/>
                     </connections>
                 </viewController>
@@ -710,7 +719,7 @@ louder for the people in the back: commentary on exclusivity that still leaves m
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YOD-28-na0"/>
+        <segue reference="Mu8-kJ-gJx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TwitterLogoBlue" width="133.33332824707031" height="133.33332824707031"/>

@@ -89,7 +89,7 @@ static NSString * const consumerSecret = @"2Jo7q2lp9S8JQ3UkP19lefzkqfNeo5sMHbzkg
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion {
     NSString *urlString = @"1.1/statuses/update.json";
     NSDictionary *parameters = @{@"status": text};
-        
+
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         
         Tweet *twt = [[Tweet alloc] initWithDictionary:responseObject];
