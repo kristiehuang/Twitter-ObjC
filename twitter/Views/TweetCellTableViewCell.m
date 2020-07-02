@@ -27,13 +27,19 @@
     self.nameLabel.text = tweet.user.name;
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
 
-    //    self.timeLabel.text = tweet.createdAtString;
-    self.timeLabel.text = tweet.timeAgo;
 
+    if (self.isDetail) {
+        self.timeLabel.text = tweet.createdAtString;
+        self.likeCountLabel.text = [NSString stringWithFormat:@"%d Likes", tweet.favoriteCount];
+        self.retweetCountLabel.text = [NSString stringWithFormat:@"%d Retweets", tweet.retweetCount];
+    } else {
+        self.timeLabel.text = tweet.timeAgo;
+        self.likeCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+        self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
+    }
     
     self.tweetTextLabel.text = tweet.text;
-    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
+
 
     if (tweet.favorited) {
         [self.likeButton setSelected:YES];

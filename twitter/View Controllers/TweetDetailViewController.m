@@ -22,6 +22,8 @@
     [super viewDidLoad];
     self.detailTableView.delegate = self;
     self.detailTableView.dataSource = self;
+    self.detailTableView.rowHeight = UITableViewAutomaticDimension;
+
     // Do any additional setup after loading the view.
 }
 - (IBAction)retweetButtonTapped:(id)sender {
@@ -48,6 +50,7 @@
 //TODO: WHEN YOU EXIT OUT AFTER LIKING/RETWEET
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetDetailCell"];
+    cell.isDetail = YES;
     [cell setUpView:self.tweet];
     cell.timeLabel.text = self.tweet.createdAtString;
     cell.likeCountLabel.text = [NSString stringWithFormat:@"%d Likes", self.tweet.favoriteCount];

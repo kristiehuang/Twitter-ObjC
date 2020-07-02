@@ -84,8 +84,7 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     cell.replyButton.tag = indexPath.row;
-    NSLog(@"%@", tweet.text);
-    
+    cell.isDetail = NO;
     [cell setUpView:tweet];
 
     

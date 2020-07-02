@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 
+@property (nonatomic) BOOL isDetail;
+
 @property (nonatomic, strong) Tweet *tweet;
 
 - (void)setUpView:(Tweet *)tweet;
