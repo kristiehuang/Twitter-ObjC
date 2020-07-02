@@ -25,19 +25,33 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)tweetButtonTapped:(id)sender {
-    [[APIManager shared] postStatusWithText:self.composeTweetTextView.text completion:^(Tweet * twt, NSError * err) {
-        if (twt) {
+    if (!self.isReply) {
+        [[APIManager shared] postStatusWithText:self.composeTweetTextView.text completion:^(Tweet * twt, NSError * err) {
+            if (twt) {
+                
+            } else {
+                NSLog(@"Error posting tweet. %@", err.localizedDescription);
+                //bring up error dialogue box
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
             
-        } else {
-            NSLog(@"Error posting tweet. %@", err.localizedDescription);
-            //bring up error dialogue box
-        }
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }];
+        }];
+    } else {
+        //apimanager shared
+        [[APIManager shared] replyToTweet:self.replyTweet withText:self.composeTweetTextView.text completion:^(Tweet * twt, NSError * err) {
+            if (twt) {
+                
+            } else {
+                NSLog(@"Error posting tweet. %@", err.localizedDescription);
+                //bring up error dialogue box
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
+
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -45,6 +59,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

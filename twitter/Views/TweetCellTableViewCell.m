@@ -20,6 +20,8 @@
 - (void)setUpView:(Tweet *)tweet {
     self.tweet = tweet;
     [self.profilePic setImageWithURL:tweet.user.profilePicUrl];
+    self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2;
+
     self.nameLabel.text = tweet.user.name;
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     self.timeLabel.text = tweet.createdAtString;
@@ -108,6 +110,9 @@
     self.tweet.favorited = !self.tweet.favorited;
     [self setUpView:self.tweet];
 
+
+}
+- (IBAction)replyButtonTapped:(id)sender {
 
 }
 

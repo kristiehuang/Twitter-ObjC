@@ -26,5 +26,5 @@
 - (void)retweetTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)unRetweetTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
-
+- (void)replyToTweet:(Tweet *)tweet withText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;
 @end

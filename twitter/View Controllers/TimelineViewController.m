@@ -12,9 +12,11 @@
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
 #import "ComposeViewController.h"
+#import "TweetDetailViewController.h"
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
+@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIButton *tweetButton;
 
 @end
 
@@ -22,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tweetButton.layer.cornerRadius = self.tweetButton.frame.size.width / 2;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -52,22 +55,35 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+
+    if ([segue.identifier isEqual: @"replyTweetSegue"]) {
+        UINavigationController *navVC = [segue destinationViewController];
+        ComposeViewController *composeVC = [[navVC viewControllers] firstObject];
+        NSInteger indexNum = [sender tag];
+        Tweet *thisTwt = self.tweets[indexNum];
+        composeVC.replyTweet = thisTwt;
+        composeVC.isReply = YES;
+    } else if ([segue.identifier isEqualToString:@"tweetDetailSegue"]) {
+        TweetDetailViewController *detailVC = [segue destinationViewController];
+        Tweet *thisTwt = [sender tweet];
+
+        detailVC.tweet = thisTwt;
+    }
 }
-*/
+
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.tweets[indexPath.row];
-    
+    cell.replyButton.tag = indexPath.row;
     NSLog(@"%@", tweet.text);
     
     [cell setUpView:tweet];
@@ -80,5 +96,6 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count;
 }
+
 
 @end
