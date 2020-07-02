@@ -48,6 +48,16 @@ static NSString * const consumerSecret = @"2Jo7q2lp9S8JQ3UkP19lefzkqfNeo5sMHbzkg
     return self;
 }
 
+- (void)getCurrentUser:(void(^)(User *, NSError *))completion {
+    NSString *urlString = @"1.1/account/verify_credentials.json";
+    [self GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        User *u = [[User alloc] initFullWithDictionary:responseObject];
+        completion(u, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
     
     [self GET:@"1.1/statuses/home_timeline.json?tweet_mode=extended"

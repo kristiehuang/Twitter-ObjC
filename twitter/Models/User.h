@@ -16,9 +16,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSURL *profilePicUrl;
+@property (nonatomic, strong) NSURL *headerPicUrl;
+
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *bio;
+@property (nonatomic, strong) NSString *profileUrl;
+@property (nonatomic) NSNumber *followerCount;
+@property (nonatomic) NSNumber *followingCount;
+@property (nonatomic) NSNumber *tweetCount;
+
 
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initFullWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

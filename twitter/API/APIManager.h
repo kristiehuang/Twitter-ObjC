@@ -18,6 +18,8 @@
 
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;
 
+- (void)getCurrentUser:(void(^)(User *, NSError *))completion;
+
 - (void)likeTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
 - (void)unlikeTweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
