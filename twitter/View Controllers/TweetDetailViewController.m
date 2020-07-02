@@ -49,9 +49,9 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetDetailCell"];
     [cell setUpView:self.tweet];
-    cell.timeLabel; //reformat
-    cell.retweetCountLabel; //reformat
-    cell.likeCountLabel; //reformat;
+    cell.timeLabel.text = self.tweet.createdAtString;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%d Likes", self.tweet.favoriteCount];
+    cell.retweetCountLabel.text = [NSString stringWithFormat:@"%d Retweets", self.tweet.retweetCount];
     return cell;
 }
 

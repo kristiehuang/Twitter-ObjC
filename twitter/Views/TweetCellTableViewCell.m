@@ -9,6 +9,8 @@
 #import "TweetCellTableViewCell.h"
 #import "APIManager.h"
 #import "UIImageView+AFNetworking.h"
+#import "DateTools.h"
+#import "NSDate+DateTools.h"
 
 @implementation TweetCellTableViewCell
 
@@ -24,7 +26,11 @@
 
     self.nameLabel.text = tweet.user.name;
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
-    self.timeLabel.text = tweet.createdAtString;
+
+    //    self.timeLabel.text = tweet.createdAtString;
+    self.timeLabel.text = tweet.timeAgo;
+
+    
     self.tweetTextLabel.text = tweet.text;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];

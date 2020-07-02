@@ -466,7 +466,7 @@ louder for the people in the back: commentary on exclusivity that still leaves m
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7:02 AM * 7/2/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4h6-sm-ayg">
-                                                    <rect key="frame" x="30" y="233" width="130" height="21"/>
+                                                    <rect key="frame" x="30" y="233" width="241" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -564,7 +564,7 @@ louder for the people in the back: commentary on exclusivity that still leaves m
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8wD-ry-95v"/>
+        <segue reference="YOD-28-na0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TwitterLogoBlue" width="133.33332824707031" height="133.33332824707031"/>
